@@ -8,11 +8,20 @@ const urlSchema = mongoose.Schema({
            method:{
             type:String
            },
+           params:{
+            type:Array
+
+           },
+           query:{
+            type:Array
+           },
             Roles   :[
+                
                 {
-                   roleId: {type:mongoose.Schema.Types.ObjectId,
+                   roleId: {
+                    type:mongoose.Schema.Types.ObjectId,
                     // required:true,
-                    //ref:"Role"
+                    ref:"Role"
                    }
                 }
             ]

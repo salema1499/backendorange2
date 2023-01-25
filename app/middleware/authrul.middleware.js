@@ -36,14 +36,7 @@ const authurl=async(req,res,next)=>{
             "tokens.token": token
             }).populate("roleId")
            
-       
-
-        
-       
-
-        req.user = userData
-        req.token = token
-        console.log("gogo",userData.roleId)
+    
         next()
     }
     catch(e){

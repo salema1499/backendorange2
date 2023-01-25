@@ -64,10 +64,12 @@ const userSchema = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Role",
      },
-    // urlId:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:"URL",
-    //  },
+
+     unitId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Project",
+    },
+    
      tokens:[{
         token:{ type:String, required: true}
 }]
@@ -94,9 +96,11 @@ userSchema.methods.toJSON = function(){
     return data
 }
 userSchema.methods.generateToken = async function(){
-    const userData = await this.populate("roleId");
+    const userData = await this.populate("roleId unitId");
+    const fname=await this.fName
     console.log("Data : ", userData);
-    const token = jwt.sign({_id: userData._id , userType: userData.roleId.userType }, process.env.tokenPass)
+    console.log("Datafn : ", fname);
+    const token = jwt.sign({_id: userData._id , userType: userData.roleId.userType}, process.env.tokenPass)
     userData.tokens = userData.tokens.concat({token})
     // userData.tokens.push({token})
     await userData.save()
@@ -113,4 +117,4 @@ module.exports=User
 
 
 
-//token 
+//token unite:userData._id,unite:userData.unitId.unite 

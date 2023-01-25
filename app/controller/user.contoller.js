@@ -18,9 +18,12 @@ class User {
   static login = async (req, res) => {
     try {
       const userData = await userModel.loginUser(
+   
         req.body.email,
         req.body.password
+        
       );
+      console.log("noonononno")
       const token = await userData.generateToken();
 
       myHelper.resHandler(
@@ -39,7 +42,7 @@ class User {
 
   static userProfile = async (req, res) => {
     try {
-      const userData = await userModel.find({ _id: req.params.id }).populate("roleId");
+      const userData = await userModel.find({ _id: req.params.id }).populate("roleId unitId");
 
       myHelper.resHandler(
         res,
