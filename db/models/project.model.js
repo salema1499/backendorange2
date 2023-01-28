@@ -9,6 +9,11 @@ const projectSchema = mongoose.Schema({
     },
      typeProject:{
         type:String,
+      
+    },
+    img:{
+        type:String,
+       
     },
     area:[{
         type:Array, 
@@ -17,7 +22,7 @@ const projectSchema = mongoose.Schema({
             type:Array,
             name:String,
             floor:[
-                {
+                { 
                 type:Number
             }
             ],

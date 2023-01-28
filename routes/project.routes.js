@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const Project = require("../app/controller/project.controller")
-// const {auth}=require("../app/middleware/auth.moddleware")
+const upload = require("../app/middleware/fileUpload.middleware")
+ //const {auth}=require("../app/middleware/auth.moddleware")
 //const {authAdmin}=require("../app/middleware/authAdmin.moddleware")
 
 
